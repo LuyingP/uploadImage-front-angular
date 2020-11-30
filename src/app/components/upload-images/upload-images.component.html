@@ -1,0 +1,38 @@
+<div class="app">
+  <div class="card">
+    <div class="container">
+        <div class="container-title">
+          <div class="container-error-message"  *ngIf="false">
+            <span class="material-icon">error</span>
+            <h3 class="title">Something went wrong</h3>
+          </div>
+
+          <div class="container-success-message"  *ngIf="false">
+            <span class="material-icon">success</span>
+            <h3 class="title">Image uploaded</h3>
+          </div>
+          <h3 class="title">Upload your image</h3>
+        </div>
+
+      <div class="container-dropzone">
+        <p class="dropzone-message">File should be Jpeg, Png,...</p>
+    
+        <form (click)="fileUpload.click()">
+          <div class="dropzone">
+            <img class="image" src={{urlImage}}>
+            <p class="dropzone-message">Drag & Drop your image here</p>
+          </div>
+
+          <div class="container" >
+            <p class="dropzone-message" style="font-size: large;">or</p>
+            <input #fileUpload style="display:none" type="file" accept="image/*" multiple (change)="upload($event)">
+            <button class="bluebutton" (click)="fileUpload.click()"> Upload </button>
+          </div>
+
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>

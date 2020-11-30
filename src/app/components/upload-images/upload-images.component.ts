@@ -23,6 +23,7 @@ export class UploadImagesComponent implements OnInit {
   }
 
   upload(event): void {
+    console.log("######### button")
     this.selectedFile=this.onFile(event);
     this.uploadFile(this.selectedFile)
    
@@ -61,6 +62,7 @@ export class UploadImagesComponent implements OnInit {
   onFile(event){
      console.log(event)
     this.selectedFile= <File>event.target.files[0];
+    
     return this.selectedFile;
     
   }

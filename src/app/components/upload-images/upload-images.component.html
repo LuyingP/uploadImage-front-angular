@@ -23,13 +23,14 @@
             <p class="dropzone-message">Drag & Drop your image here</p>
           </div>
 
-          <div class="container" >
+          <div class="container">
             <p class="dropzone-message" style="font-size: large;">or</p>
             <input #fileUpload style="display:none" type="file" accept="image/*" multiple (change)="upload($event)">
-            <button class="bluebutton" (click)="fileUpload.click()"> Upload </button>
+            
           </div>
 
         </form>
+        <button class="bluebutton" (click)="fileUpload.click()">Upload </button>
       </div>
 
 

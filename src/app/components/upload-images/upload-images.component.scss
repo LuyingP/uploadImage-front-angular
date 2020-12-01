@@ -9,6 +9,17 @@
     background-color: #f5f5f5;
     overflow: hidden;
   }
+  .card2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 65px;
+    background: #fafafb;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+ 
   
   .card {
     display: flex;
@@ -64,7 +75,7 @@
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 1rem;
-  
+    padding-bottom: 20px;
     span {
       color: #219653;
       font-size: 40px;
@@ -135,6 +146,19 @@
     }
   }
 
+  .container-card {
+    display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  }
+  .container-card .row {
+    margin: 0 auto;
+  }
+
+
   .dropzone {
     display: flex;
     flex-direction: column;
@@ -144,12 +168,39 @@
     border-radius: 12px;
     width: 100%;
     height: 85%;
+    background-color:#F6F8FB;;
   
     .image {
       width: 30%;
       margin-top: 5%;
+       padding-bottom: 20px;
+       padding-top: 30px;
     }
   }
+
+  .dropzone2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border: 1px dashed #97bef4;
+     box-sizing: border-box;
+    // border-radius: 12px;
+     width: 100%;
+     height: 85%;
+  
+    .image {
+
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 12px;
+        padding-bottom: 20px;
+
+    }
+  }
+
+ 
 
   .dropzone-message {
     /* Drag & Drop your image here */
@@ -160,35 +211,14 @@
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.035em;
-  
+   
     color: #bdbdbd;
   }
 
-  .progress-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding: 2rem;
-    width: 400px;
-    height: 77px;
-    background: #fafafb;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-  }
   
-  .progress-bar-title {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    letter-spacing: -0.035em;
-  }
   
-  .progress-bar-container {
-    width: 100%;
-  }
+
+ 
 
 
 
@@ -201,9 +231,6 @@
 
 
 
-button {
-    font-family: 'Noto Sans JP', sans-serif;
-}
 
 .break {
     flex-basis: 100%;
@@ -218,20 +245,7 @@ button {
     height: 220px;
 }
 
-.mainbutton {
-    width: 402px;
-    background-color: transparent;
-    border: none;
-}
 
-#filedrop {
-    margin-left: -2px;
-    width: 402px;
-}
-
-progress {
-    display: none;
-}
 
 .bluebutton {
     background: #2F80ED;
@@ -257,4 +271,31 @@ input[type="text"] {
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 8px;
+}
+
+.link {
+  text-overflow: ellipsis;
+  max-width: 70%;
+  height: 1em;
+  white-space: nowrap;
+  font-size: 10px;
+
+}
+
+
+
+.check-icon {
+  background-color: #219653;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+
+}
+
+.error{
+  background-color: #cc0000;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color:white
 }

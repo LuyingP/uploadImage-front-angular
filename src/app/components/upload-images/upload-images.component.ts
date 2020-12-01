@@ -1,5 +1,6 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import {UploadFilesService} from'../../services/upload-files.service';
 
@@ -15,9 +16,13 @@ export class UploadImagesComponent implements OnInit {
   message = '';
   selectedFile:File=null;
   fileInfos:any;
-  up:boolean=false;
+  up:boolean=true;
+  success:boolean=true;
+  status:boolean=true;
   urlImage="../../../assets/images/image.svg";
-  constructor(private uploadService:UploadFilesService) { }
+  constructor(private uploadService:UploadFilesService) { 
+  
+  }
 
   ngOnInit(): void {
   }
@@ -37,22 +42,25 @@ export class UploadImagesComponent implements OnInit {
   
     this.uploadService.upload(fileS).subscribe(
       event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progressInfo.percentage = Math.round(100 * event.loaded / event.total);
-
-           this.up=true;
-          // this.uploadService.displayFile(this.selectedFile.name)
-          // .subscribe(res=>{
-          //   console.log("########### "+res)
-          // });
-        } 
+        this.up=false;
+         setInterval(()=>this.up=true,4000)
+        // if (event.type === HttpEventType.UploadProgress) {
+        //   var percentage = Math.round(( event.loaded / event.total)*100);
+        //   console.log(event.loaded, event.total);
+        //   if(percentage==100){
+        //     this.up=true;
+        //   }
+ 
+        //  } 
         if (event.type === HttpEventType.Response) {
           // this.fileInfos=event.body.imageUrl;
+          this.status=false;
           this.urlImage=event.body.imageUrl;
         }
         
       },
       err => {
+        
         //  this.progressInfo.percentage = 0;
         this.message = 'Could not upload the file:' + fileS.name;
       });

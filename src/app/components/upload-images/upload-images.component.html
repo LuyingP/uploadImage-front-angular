@@ -12,71 +12,75 @@
     <div class="container" *ngIf="!status">
       <div class="container-title">
         <div class="container-error-message" *ngIf="!success">
-          
-          
           <img src="../../../assets/images/clear.svg" class="error" alt="" />
-          <h3 style="padding-top: 15px;" class="title">Something went wrong</h3>
+          <h3 style="padding-top: 15px;" class="title">{{message}}</h3>
         </div>
 
         <div class="container-success-message" *ngIf="success">
-          
-          
-           <img src="../../../assets/images/tick.svg" class="check-icon" alt="" />
-           <h3 style="padding-top: 15px;" class="title">Uploaded Successfully!</h3>
+          <img src="../../../assets/images/tick.svg" class="check-icon" alt="" />
+          <h3 style="padding-top: 15px;" class="title">Uploaded Successfully!</h3>
         </div>
+      </div>
+
+      <div class="container-dropzone" *ngIf="success">
+        <div class="dropzone2">
+
+          <img class="image" src={{urlImage}}>
+
+        </div>
+
+        <div class="link" *ngIf="success">
+          <input type="text" value={{urlImage}}>
+          <button class="bluebutton" data-clipboard-target="#link-to-copy">
+            Copy Link
+          </button>
+        </div>
+
+      </div>
+
+      <div class="container-dropzone" *ngIf="!success">
+        <p class="dropzone-message">File should be jpeg, png,jpg...</p>
+        <form (click)="fileUpload.click()">
+          <div class="dropzone">
+            <img class="image" src={{urlImage}}>
+            <p class="dropzone-message">Drag & Drop your image here</p>
+          </div>
+          <div class="container">
+            <p class="dropzone-message" style="font-size: large; padding-bottom: 20px;padding-top: 20px;">or</p>
+            <input #fileUpload style="display:none" type="file" accept="image/*" multiple (change)="upload($event)">
+          </div>
+        </form>
+        <button class="bluebutton" style="margin-top: 20px;" (click)="fileUpload.click()">Upload </button>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="container" *ngIf="status">
+      <div class="container-title">
+
+        <h3 class="title">Upload your image</h3>
       </div>
 
       <div class="container-dropzone">
-        <div class="dropzone2">
-          
-          <img class="image" src={{urlImage}}>
-       
-        </div>
-
-        <div class="link">
-        <input type="text" value={{urlImage}}>
-        <button
-        class="bluebutton"
-        data-clipboard-target="#link-to-copy"
-      >
-        Copy Link
-      </button>
-    </div>
-
+        <p class="dropzone-message">File should be Jpeg, Png,...</p>
+        <form (click)="fileUpload.click()">
+          <div class="dropzone">
+            <img class="image" src={{urlImage}}>
+            <p class="dropzone-message">Drag & Drop your image here</p>
+          </div>
+          <div class="container">
+            <p class="dropzone-message" style="font-size: large; padding-bottom: 20px;padding-top: 20px;">or</p>
+            <input #fileUpload style="display:none" type="file" accept="image/*" multiple (change)="upload($event)">
+          </div>
+        </form>
+        <button class="bluebutton" style="margin-top: 20px;" (click)="fileUpload.click()">Upload </button>
       </div>
+
     </div>
 
 
-
-
-
-      <div class="container" *ngIf="status">
-        <div class="container-title">
-
-          <h3 class="title">Upload your image</h3>
-        </div>
-
-        <div class="container-dropzone">
-          <p class="dropzone-message">File should be Jpeg, Png,...</p>
-
-
-
-          <form (click)="fileUpload.click()">
-            <div class="dropzone">
-              <img class="image" src={{urlImage}}>
-              <p class="dropzone-message">Drag & Drop your image here</p>
-            </div>
-
-            <div class="container">
-              <p class="dropzone-message" style="font-size: large; padding-bottom: 20px;padding-top: 20px;">or</p>
-              <input #fileUpload style="display:none" type="file" accept="image/*" multiple (change)="upload($event)">
-
-            </div>
-
-          </form>
-          <button class="bluebutton" style="margin-top: 20px;" (click)="fileUpload.click()">Upload </button>
-        </div>
-
-      </div>
-    </div>
   </div>
+</div>

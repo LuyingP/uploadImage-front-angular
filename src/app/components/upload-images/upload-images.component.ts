@@ -17,7 +17,7 @@ export class UploadImagesComponent implements OnInit {
   up: boolean = true;
   success: boolean = true;
   status: boolean = true;
-  urlImage = "../../../assets/images/image.svg";
+  urlImage = "assets/images/image.svg";
   progress: number = 0;
 
   constructor(private uploadService: UploadFilesService) { }
